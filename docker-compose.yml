@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+    db_mapping:
+        build: asset_mapping
+        ports:
+            - "27017:27017"
+
+    db_mapping_seed:
+        build: db_mapping_seed
+        links:
+            - db_mapping
+
+    webapp:
+        build: webapp
+        ports:
+            - "80:3000"
+        links:
+            - db_mapping
+        environment:
+            - MONGO_HOST=db_mapping
+            - PORT=27017
