@@ -2,6 +2,6 @@
 FROM mongo
 
 WORKDIR /var/dmongo
-VOLUME /var/dmongo/data
+VOLUME ./mongo_data:/data
 COPY profile_asset.json /var/dmongo
 CMD mongoimport --host db_mapping -d user -c userProfile --drop --type json --file /var/dmongo/profile_asset.json --jsonArray

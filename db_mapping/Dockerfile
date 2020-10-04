@@ -1,3 +1,3 @@
 FROM mongo
 
-VOLUME /var/dmongo/data
+VOLUME ./mongo_data:/data
