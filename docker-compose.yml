@@ -2,14 +2,18 @@ version: '3.3'
 
 services:
     db_mapping:
-        build: asset_mapping
+        build: db_mapping
         ports:
             - "27017:27017"
+        volumes:
+            - data:/var/dmongo/data
 
     db_mapping_seed:
         build: db_mapping_seed
         links:
             - db_mapping
+        volumes:
+            - data:/var/dmongo/data
 
     webapp:
         build: webapp

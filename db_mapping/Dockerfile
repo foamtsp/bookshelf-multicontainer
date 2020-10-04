@@ -1,2 +1,3 @@
 FROM mongo
-# Just the above is fine...
+
+VOLUME /var/dmongo/data
